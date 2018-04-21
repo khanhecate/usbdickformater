@@ -1,0 +1,26 @@
+#!/bin/bash
+echo -n "select usbdisk : [ex:/dev/sd?] :"
+read disk
+echo "select format disk : "
+echo "1.ntfs"
+echo "2.fat"
+echo "========================================================"
+read format
+#ntfs
+	if [[ $format -eq 1 ]]
+	then
+	echo " umounting usbdisk..."
+	umount $disk
+	echo "formating ...."
+	mkfs.ntfs $disk 
+	echo "done"
+	fi
+#fat
+	if [[ $format -eq 2 ]]
+	then
+	echo " umounting usbdisk..."
+	umount $disk
+	echo "formating ...."
+	mkfs.fat $disk -I
+	echo "done"
+	fi

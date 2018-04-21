@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ $EUID -ne 0 ]]; then
+	echo "are you root ?"
+	exit 
+	else
+	echo "instaling..."
+fi
+cp .format format
+chmod -R 777 format
+mv format /usr/bin
+sleep 2
+echo "done , you can run this program via comand \"format\" in root mode"
